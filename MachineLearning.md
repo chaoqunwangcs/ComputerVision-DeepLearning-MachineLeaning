@@ -84,7 +84,8 @@ LASSO回归和岭回归类似，不同的是，Lasso可以理解为在线性回�
 LDA是一种有监督的线性投影技术，它寻找向低维空间的投影矩阵 W，样本的特征向量 x 经过投影之后得到的新向量 y：
 $$y=Wx$$
 投影的目标是同一类样投影后的结果向量同类**样本差异尽可能小，不同类的样本差异尽可能大**。直观来看，就是经过这个投影之后同一类的样本进来聚集在一起，不同类的样本尽可能离得远。对于**二分类问题**：
-$$\arg \min_{w} J(w)=\frac{||w^T\mu_0 - w^T\mu_1||_2^2}{w^T\sum_0w+w^T\sum_1w} = \frac{w^T(\mu_0-\mu_1)(\mu_0-\mu_1)^Tw}{w^T(\sum_0+\sum_1)w}$$
+
+$$arg \min_{w} J(w)=\frac{||w^T\mu_0 - w^T\mu_1||_2^2}{w^T\sum_0w+w^T\sum_1w} = \frac{w^T(\mu_0-\mu_1)(\mu_0-\mu_1)^Tw}{w^T(\sum_0+\sum_1)w}$$
 定义类内散度矩阵：
 $$S_w=\sum_0+\sum_1=\sum_{x \in X_0}(x-\mu_0)(x-\mu_0)^T +\sum_{x \in X_1}(x-\mu_1)(x-\mu_1)^T$$
 定义类间散度矩阵：
@@ -147,7 +148,7 @@ $$logit(p)=ln(\frac{p}{1-p})$$
 设有一个二分类因变量y，取值为1时表示事件发生，取值为0时表示事件未发生；该因变量有m个影响因素（自变量）：$x_1,x_2,...,x_m$；记事件发生的条件概率$P(y=1∣x_i)=p_i$，则由$p_i$（第i个观测）所构建的logistic回归模型为：
 $$logit(p_i)=ln(\frac{p_i}{1-p_i})=\beta_0+\beta_1x_1+\cdots +\beta_mx_m=\beta_0+\sum_{j=1}^{m}\beta_jx_j,j=1,2,\cdots,m
 $$
-其中β$_j$表示自变量$x_j$改变一个单位时，$logit(p_i)$的改变量，可以理解为各个影响因素的权重系数。
+其中$\beta_j$表示自变量$x_j$改变一个单位时，$logit(p_i)$的改变量，可以理解为各个影响因素的权重系数。
 通过变换，logistic回归模型也可以写成如下形式：
 $$p_i=\frac{e^{\beta_0+\sum_{j=1}^{m}\beta_jx_j}}{1+e^{\beta_0+\sum_{j=1}^{m}\beta_jx_j}}$$
 通过观察logistic回归模型，我们会发现它与线性回归模型非常相似。事实上，logistic回归模型属于广义线性模型（generalized linear model）。
